@@ -60,7 +60,7 @@ class Tlv(object):
         return Tlv.tlv_pack('01 06',Tea.encrypt(pack.get_all(),md52pass))
 
     @staticmethod
-    def tlv116(mtype):
+    def tlv116(mtype = 0):
         pack = Pack()
         if mtype == 1:
             pack.write_hex('00 08 F7 FF 7C 00 01 04 00 01 5F 5E 10 E2')
@@ -248,3 +248,15 @@ class Tlv(object):
         pack = Pack()
         pack.write_hex('00 01 05 36 00 02 01 00')
         return Tlv.tlv_pack('05 25',pack.get_all())
+    
+    @staticmethod
+    def tlv104(token:bytes):
+        pack = Pack()
+        pack.write_bytes(token)
+        return Tlv.tlv_pack('01 04',pack.get_all())
+
+    @staticmethod
+    def tlv401():
+        pack = Pack()
+        pack.write_hex('40 14 4E C7 5E FC 75 2B 69 0D E3 8C D7 D9 50 2F')
+        return Tlv.tlv_pack('04 01',pack.get_all())

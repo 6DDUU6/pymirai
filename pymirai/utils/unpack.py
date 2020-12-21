@@ -24,6 +24,12 @@ class Unpack(object):
         ret = int.from_bytes(ret,byteorder='big')
         return ret
     
+    def getByte(self):
+        ret = self.pkt[:1]
+        self.pkt = self.pkt[1:]
+        ret = int.from_bytes(ret,byteorder='big')
+        return ret
+    
     def getAll(self):
         ret = self.pkt
         self.pkt = bytes()

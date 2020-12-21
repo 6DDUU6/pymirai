@@ -28,6 +28,8 @@ def _bytes2hex(bin_: bytes) -> str:
 def str2bytes(text: str):
     return text.encode('utf-8')
 
+def bytes2str(bin_:bytes):
+    return bin_.decode('utf-8')
 
 def str2hex(text: str):
     strBytes = text.encode('utf-8')
